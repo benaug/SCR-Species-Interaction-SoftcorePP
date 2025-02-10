@@ -63,3 +63,6 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/env.2781
 Gaya, Heather E., and Richard B. Chandler. "Individual‐level biotic interactions and species distribution models." Journal of Biogeography 51.11 (2024): 2071-2083.
 https://onlinelibrary.wiley.com/doi/full/10.1111/jbi.14972
 
+Here is a repo using a density-based approach to species interactions:
+https://github.com/benaug/SCR-Species-Interaction-Density
+
