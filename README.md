@@ -41,7 +41,7 @@ when densities are higher. The data simulators produce useful plots for determin
 
 The testscripts are set up for a scenario where both species respond strongly to the same habitat covariate, so they prefer the same parts of the landscape. But species 2 avoids species 1.
 I was able to get nearly unbiased estimates with roughly nominal 95% coverage from the "Softcore" model with 225 traps, and average of 30 species 1 individuals and 150 species 2 individuals. A similar scenario for
-"Softcore baseline shareSig" yielded nearly unbiased estimates, but coverage was low for some parameters (down to about 80%).
+"Softcore baseline shareSig" yielded nearly unbiased estimates, but coverage was low for some parameters (down to about 80%). Both the testscripts and simulation investigation assume detection probabilities are higher than is usually realistic in practice.
 
 Generally, I think the "hard exclusion" assumption of h0=1 goes a long way to providing identifiability of process model parameters. But maybe there are smarter scenarios.
 
