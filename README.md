@@ -5,9 +5,12 @@ This repository contains a basic implementation of a soft-core point process for
 These models use an "interaction function", "h", for species 1's effect on the placement of species 2's activity centers.
 The function used is:
 
-dists <- e2dist(s1,dSS) #distance between species 1 activity centers and all state space locations
-kern <- exp(-dists^2/(2*omega^2))
+dists <- e2dist(s1,dSS) #distance between species 1 activity centers and all state space locations 
+
+kern <- exp(-dists^2/(2*omega^2)) 
+
 log.h <- colSums(log(1-kern)) 
+
 h <- exp(log.h)
 
 This is what is used in the base model "Softcore". "Softcore baseline" includes a second parameter in the interaction function.
@@ -16,7 +19,7 @@ kern <- h0*exp(-dists^2/(2*omega^2))
 
 This baseline interaction parameter allows less extreme repulsion. Note, that without h0, whenever a species 1 activity center is located
 exactly at a state space location, h for that cell is 0 and species 2 cannot have an activity center in this cell. This happens very frequently
-when using a discrete state space as used in this repo (so far). With a continuous state space, as species 1 activity center approaches the state space
+when using a discrete state space as used in this repo. With a continuous state space, as species 1 activity center approaches the state space
 centroid, we get the same effect. But now, the arbitrary movement of species 1 activity centers inside a state space cell, perhaps assumed to be
 uniformly distributed, changes the magnitude of repulsion of species 2. Also, changing the state space cell sizes also arbitrarily controls how often
 complete exclusion from a cell happens (this seems less than ideal behavior, so I prefer a discrete state space.
@@ -33,8 +36,8 @@ home range, governed by species 2's detection sigma.
 kern <- h0*exp(-dists^2/(2*sigma1^2))
 
 I do not expect these models to work well with most data sets that can be collected in practice. The interaction function parameters and density parameters
-can be very weakly identifiable. The geometry of the landscape and trap configurations can have a large impact on identifiability. Also, identifiability is better
-when densities are higher.
+are often very weakly identifiable. The geometry of the landscape and trap configurations can have a large impact on identifiability. Also, identifiability is better
+when densities are higher. The data simulators produce useful plots for determining how well a scenario might work, including a plot of the interaction function.
 
 The testscripts are set up for a scenario where both species respond strongly to the same habitat covariate, so they prefer the same parts of the landscape. But species 2 avoids species 1.
 I was able to get nearly unbiased estimates with roughly nominal 95% coverage from the "Softcore" model with 225 traps, and average of 30 species 1 individuals and 150 species 2 individuals. A similar scenario for
@@ -60,8 +63,4 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/env.2781
 
 Gaya, Heather E., and Richard B. Chandler. "Individual‐level biotic interactions and species distribution models." Journal of Biogeography 51.11 (2024): 2071-2083.
 https://onlinelibrary.wiley.com/doi/full/10.1111/jbi.14972
-
-
-
-
 
