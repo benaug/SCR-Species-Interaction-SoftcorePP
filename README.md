@@ -46,13 +46,13 @@ I was able to get nearly unbiased estimates with roughly nominal 95% coverage fr
 Generally, I think the "hard exclusion" assumption of h0=1 goes a long way to providing identifiability of process model parameters. But maybe there are smarter scenarios.
 
 
-Notes on MCMC: I use a "pragmatic" reversible jump MCMC approach for both species where the process model latent variables remain in the model, but the individuals in the observation model are turned on and off. This is less efficient that regular RJMCMC, but can be set up relatively easily in nimble and allows an N ~ Poisson(lambda) assumption.
+These models use count prior data augmentation: https://github.com/benaug/SCR-Count-Prior-Data-Augmentation
 To speed up computation, I use the approach of Herliansyah et al. (2024) in the custom N/z and activity center updates.
 
 https://link.springer.com/article/10.1007/s13253-023-00598-3
 
-Also, these models are still very slow to run. The species 1 "data augmentation" (still have to give nimble an upper limit) has a large effect on run time due to species 2 process model parameters depending on species 1 latent variables.
-Trimming of the process and observation model computations could futher improve efficiency.
+Also, these models are still very slow to run. The species 1 "data augmentation" has a large effect on run time due to species 2 process model parameters depending on species 1 latent variables.
+Trimming of the process and observation model computations could further improve efficiency.
 
 
 Two references for softcore point processes in spatial capture-recapture are:
