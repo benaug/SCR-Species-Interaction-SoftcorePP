@@ -46,7 +46,7 @@ I was able to get nearly unbiased estimates with roughly nominal 95% coverage fr
 Generally, I think the "hard exclusion" assumption of h0=1 goes a long way to providing identifiability of process model parameters. But maybe there are smarter scenarios.
 
 
-These models use count prior data augmentation: https://github.com/benaug/SCR-Count-Prior-Data-Augmentation
+These models use N-prior data augmentation: https://github.com/benaug/SCR-N-Prior-Data-Augmentation
 To speed up computation, I use the approach of Herliansyah et al. (2024) in the custom N/z and activity center updates.
 
 https://link.springer.com/article/10.1007/s13253-023-00598-3
